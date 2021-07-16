@@ -1,0 +1,33 @@
+{ "AWSTemplateFormatVersion" : "2010-09-09",
+  "Resources": {
+      "Counter": {
+          "Type": "AWS::DynamoDB::Table",
+          "Properties": {
+              "AttributeDefinitions": [
+                  {
+                      "AttributeName": "web_string",
+                      "AttributeType": "S"
+                  },
+                  {
+                      "AttributeName": "counter",
+                      "AttributeType": "N"
+                  }
+              ],
+              "KeySchema": [
+                  {
+                      "AttributeName": "web_string",
+                      "KeyType": "HASH"
+                  },
+                  {
+                      "AttributeName": "counter",
+                      "KeyType": "RANGE"
+                  }
+              ],
+              "ProvisionedThroughput": {
+                  "ReadCapacityUnits": 5,
+                  "WriteCapacityUnits": 5
+              }
+          }
+      }
+  }
+}

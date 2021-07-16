@@ -1,0 +1,36 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: SAM template for my API Gateway
+Resources:
+  CountGateway:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: prod
+  GetApiFunction:
+    Type: AWS::Serverless::Function
+    Cors: https://mvpttsd3he.execute-api.us-west-2.amazonaws.com, http://daffernmatthewresume.s3-website-us-west-2.amazonaws.com/, http://daffernmatthewresume.s3-website-us-west-2.amazonaws.com
+    Properties:
+      Events:
+        ApiEvent:
+          Type: Api
+          Properties:
+            Path: /updateCount
+            Method: get
+            RestApiId:
+              Ref: CountGateway
+      Runtime: python3.7
+      Handler: get_count.get_count
+  UpdateApiFunction:
+    Type: AWS::Serverless::Function
+    Cors: https://mvpttsd3he.execute-api.us-west-2.amazonaws.com, http://daffernmatthewresume.s3-website-us-west-2.amazonaws.com/, http://daffernmatthewresume.s3-website-us-west-2.amazonaws.com
+    Properties:
+      Events:
+        ApiEvent:
+          Type: Api
+          Properties:
+            Path: /updateCount
+            Method: get
+            RestApiId:
+              Ref: CountGateway
+      Runtime: python3.7
+      Handler: update_count.update_count

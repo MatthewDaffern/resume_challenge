@@ -1,0 +1,76 @@
+{
+"AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "My lambda function",
+    "Resources": {
+
+"GetCount": {
+  "Type": "AWS::Lambda::Function",
+  "Properties": {
+    "Code": {
+      "S3Bucket": "resume",
+      "S3Key": "get_count.zip"
+    },
+    "Handler": "get_count.get_count",
+    "Role": "DynamoDBAccess",
+    "Runtime": "python3.8",
+    "MemorySize": 128,
+    "Timeout": 5
+            }
+    
+
+      
+      },
+
+
+      "UpdateCount": {
+        "Type": "AWS::Lambda::Function",
+        "Properties": {
+          "Code": {
+            "S3Bucket": "resume",
+            "S3Key": "update_count.zip"
+          },
+          "Handler": "update_count.update_count",
+          "Role": "DynamoDBAccess",
+          "Runtime": "python3.8",
+          "MemorySize": 128,
+          "Timeout": 5
+                  }
+          
+      
+            
+            }
+      ,
+
+      "myDynamoDBTable" : {
+        "Type" : "AWS::DynamoDB::Table",
+        "Properties" : {
+          "AttributeDefinitions" : [
+            {
+              "AttributeName" : "web_service",
+              "AttributeType" : "S"   
+            },
+            {
+              "AttributeName" : "count_total",
+              "AttributeType" : "N"
+            }
+          ],
+          "KeySchema" : [
+            {
+              "AttributeName" : "web_service",
+              "KeyType" : "String"
+            },
+            {
+              "AttributeName" : "count_total",
+              "KeyType" : "Number"
+            }
+          ],
+          "ProvisionedThroughput" : {
+            "ReadCapacityUnits" : "5",
+            "WriteCapacityUnits" : "5"
+          },
+          "TableName" : "counter"
+        }
+      }
+
+    }
+}

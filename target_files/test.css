@@ -1,0 +1,73 @@
+https://muhannad.io/
+
+do the resume as good as the above one.
+
+
+
+
+
+body {background-color: #def3fd;}
+
+.img {
+    max-width: 12%;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+}
+
+.name {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2.25em;
+    font-weight: bolder;
+  }
+
+.name_and_bio {
+    background-color: aquamarine;
+    margin-bottom: 2%;
+}
+
+.bio {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.4em;
+    margin-left: 20%;
+    margin-right: 20%;
+  }
+
+  .content {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.4em;
+    margin-left: 20%;
+    margin-right: 20%;
+
+  }
+
+  .subject_line {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2em;
+
+  }
+
+
+.header{
+    font-family: 'Roboto', sans-serif;
+    font-weight: bolder;
+    font-size: 2.1em;
+
+}
+
+.cert_head{
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    
+}
+.head{
+
+    font-family: 'Roboto', sans-serif;
+
+}
+
+
+.counter{
+  font-family: 'Roboto', sans-serif;
+  font-weight: bolder;
+}
